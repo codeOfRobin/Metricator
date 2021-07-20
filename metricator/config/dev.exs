@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :metricator, Metricator.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "test_user",
+  password: "workbox-rodeo-forecast-rectify-taxiderm",
   database: "metricator_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
