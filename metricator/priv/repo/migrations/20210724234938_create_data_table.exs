@@ -2,19 +2,15 @@ defmodule Metricator.Repo.Migrations.CreateDataTable do
   use Ecto.Migration
 
   def up do
-    create table(:conditions, primary_key: false) do
-      add(:time, :naive_datetime, null: false)
-      add(:location, :string, null: false)
-      add(:temperature, :decimal, null: false)
-      add(:humidity, :decimal, null: false)
-
-      timestamps()
+    create table(:metrics, primary_key: false) do
+      add(:timestamp, :naive_datetime, null: false)
+      add(:properties, :map, null: false)
     end
 
-    execute("SELECT create_hypertable('conditions', 'time')")
+    execute("SELECT create_hypertable('metrics', 'timestamp')")
   end
 
   def down do
-    drop(table(:conditions))
+    drop(table(:metrics))
   end
 end
