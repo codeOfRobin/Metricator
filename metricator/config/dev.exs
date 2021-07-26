@@ -4,7 +4,7 @@ use Mix.Config
 config :metricator, Metricator.Repo,
   username: "postgres",
   password: "postgres",
-  database: "postgres",
+  database: "app",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

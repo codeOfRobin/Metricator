@@ -22,6 +22,13 @@ services:
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
+  grafana:
+    image: grafana/grafana:5.1.0
+    ports:
+      - 3000:3000
+    links:
+      - "db:database"
+
   db:
     image: postgres:latest
     restart: unless-stopped
