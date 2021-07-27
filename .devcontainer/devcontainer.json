@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.187.0/containers/elixir-phoenix-postgres
 {
-	"name": "Elixir, Phoenix, Node.js & PostgresSQL (Community)",
+	"name": "Ubuntu",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "elixir",
 	"workspaceFolder": "/workspace",
@@ -32,8 +32,12 @@
 		4000,
 		5432
 	],
+	"postCreateCommand": [
+		"bash",
+		"scripts/setup.sh"
+	],
+	"userEnvProbe": "interactiveShell"
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "mix deps.get"
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
 }
