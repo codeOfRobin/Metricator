@@ -14,8 +14,7 @@ RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1 \
   && echo "source ~/.asdf/asdf.fish" >> ~/.config/fish/config.fish \ 
   && echo ". $HOME/.asdf/asdf.sh" >> ~/.bashrc \
   && mkdir -p ~/.config/fish/completions \ 
-  && ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions \
-  && source ~/.bashrc
+  && ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 
 ENV PATH="~/.asdf/bin:${PATH}"
 
