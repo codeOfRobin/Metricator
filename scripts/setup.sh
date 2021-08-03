@@ -6,4 +6,4 @@ mix local.hex --force \
 
 # I don't even know what to tell you man it's just this way
 cd metricator/assets && /root/.asdf/shims/npm install
-cd .. && mix deps.get && mix ecto.migrate
+cd .. && mix deps.get

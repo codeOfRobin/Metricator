@@ -32,7 +32,8 @@
 		4000,
 		5432
 	],
-	"postAttachCommand": "bash -c scripts/setup.sh",
+	"postCreateCommand": "bash -c scripts/setup.sh",
+	"postAttachCommand": "bash -c scripts/migrate.sh",
 	"userEnvProbe": "loginInteractiveShell"
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "mix deps.get"
