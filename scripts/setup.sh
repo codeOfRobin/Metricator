@@ -1,10 +1,9 @@
 #!/bin/bash
 
-source ~/.bashrc
-
 mix local.hex --force \
   && mix local.rebar --force \
   && mix archive.install --force hex phx_new 1.5.8
 
-cd metricator/assets && npm install
-cd .. && mix deps.get
+# I don't even know what to tell you man it's just this way
+cd metricator/assets && /root/.asdf/shims/npm install
+cd .. && mix deps.get && mix ecto.migrate
