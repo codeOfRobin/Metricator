@@ -18,7 +18,8 @@
 				"username": "postgres",
 				"password": "postgres"
 			}
-		]
+		],
+		"elixirLS.projectDir": "metricator"
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
