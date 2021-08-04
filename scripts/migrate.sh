@@ -1,3 +1,3 @@
 #!/bin/bash
-sleep(5)
-mix ecto.migrate
+sleep 5
+cd metricator && mix ecto.migrate

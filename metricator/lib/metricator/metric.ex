@@ -2,14 +2,16 @@ defmodule Metricator.Metric do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key false
+
   schema "metrics" do
     field :properties, :map
-    field :timestamp, :naive_datetime, virtual: true
+    field :timestamp, :naive_datetime
   end
 
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:properties, :time])
+    |> cast(attrs, [:properties, :timestamp])
   end
 end
