@@ -10,6 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the stack
-        run: docker-compose up -d -f .devcontainer/docker-compose.yml
+        run: cd .devcontainer && docker-compose up -d
+      - name: ps
+        run: cd .devcontainer && docker-compose ps
       - name: Test
-        run: docker run --service-ports elixir scripts/test.sh
+        run: cd .devcontainer && docker-compose exec -T elixir /bin/bash -c 'cd workspace && sudo scripts/setup.sh && scripts/migrate.sh && scripts/test.sh'
