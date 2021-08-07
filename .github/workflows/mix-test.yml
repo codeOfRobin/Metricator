@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: erlef/setup-beam@v1
-        with:
-          otp-version: "24.x"
-          elixir-version: "1.12.2"
-      - run: scripts/test.sh
+      - name: Build the stack
+        run: docker-compose up -d -f .devcontainer/docker-compose.yml
+      - name: Test
+        run: docker run --service-ports elixir scripts/test.sh
