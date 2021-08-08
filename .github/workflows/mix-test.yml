@@ -1,0 +1,17 @@
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the stack
+        run: cd .devcontainer && docker-compose up -d
+      - name: ps
+        run: cd .devcontainer && docker-compose ps
+      - name: Test
+        run: cd .devcontainer && docker-compose exec -T elixir /bin/bash -c 'cd workspace && sudo scripts/setup.sh && scripts/migrate.sh && scripts/test.sh'
