@@ -13,7 +13,7 @@ RUN apt-get install -y wget gnupg2 inotify-tools locales && \
   wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && \ 
   dpkg -i erlang-solutions_2.0_all.deb && \
   apt-get update -y && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y erlang-dev erlang-parsetools elixir
+  DEBIAN_FRONTEND=noninteractive apt-get install -y erlang-dev erlang-parsetools elixir erlang-dialyzer erlang-edoc
 
 SHELL ["/bin/bash", "-c"]
 RUN git config --global advice.detachedHead false
