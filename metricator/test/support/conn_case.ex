@@ -23,6 +23,7 @@ defmodule MetricatorWeb.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import MetricatorWeb.ConnCase
+      import Metricator.Factory
 
       alias MetricatorWeb.Router.Helpers, as: Routes
 

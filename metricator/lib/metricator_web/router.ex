@@ -12,6 +12,8 @@ defmodule MetricatorWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+
+    resources "/record", MetricatorWeb.MetricController, only: [:create]
   end
 
   scope "/", MetricatorWeb do
