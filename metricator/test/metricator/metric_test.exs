@@ -3,7 +3,7 @@ defmodule Metricator.MetricsCase do
 
   import Metricator.Factory
 
-  alias Metricator.MetricData
+  alias Metricator.{Metric, MetricData}
 
   # _Extremely_ inspired by https://www.tddphoenix.com/showing-a-list-of-chat-rooms/
   describe "all_metrics/0" do
@@ -17,4 +17,18 @@ defmodule Metricator.MetricsCase do
     end
   end
 
+  describe "new_metric/0" do
+    test "prepares a changeset for a new metric" do
+      assert %Ecto.Changeset{} = MetricData.new_metric()
+    end
+  end
+
+  describe "create_metric/1" do
+    test "create a room" do
+      params = string_params_for(:metric)
+      {:ok, metric} = MetricData.create_metric(params)
+      assert %Metric{} = metric
+      assert metric.properties == params["properties"]
+    end
+  end
 end
