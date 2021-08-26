@@ -24,7 +24,7 @@ defmodule Metricator.MetricsCase do
   end
 
   describe "create_metric/1" do
-    test "create a room" do
+    test "create a metric" do
       params = string_params_for(:metric)
       {:ok, metric} = MetricData.create_metric(params)
       assert %Metric{} = metric
