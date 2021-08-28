@@ -6,7 +6,7 @@ defmodule Metricator.Metric do
 
   schema "metrics" do
     field :properties, :map
-    field :timestamp, :naive_datetime
+    field :timestamp, :utc_datetime_usec
   end
 
   @doc false

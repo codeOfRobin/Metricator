@@ -3,7 +3,7 @@ defmodule Metricator.Repo.Migrations.CreateDataTable do
 
   def up do
     create table(:metrics, primary_key: false) do
-      add(:timestamp, :naive_datetime, null: false)
+      add(:timestamp, :utc_datetime_usec, null: false)
       add(:properties, :map, null: false)
     end
 
