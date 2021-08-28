@@ -20,6 +20,6 @@ defmodule MetricatorWeb.SendMetricSuccesfullyTest do
 
     [metric | _] = MetricData.all_metrics()
     assert metric.properties == metric_data["properties"]
-    assert metric.timestamp == metric_data["timestamp"]
+    assert metric.timestamp == metric_data["timestamp"] |> DateTime.from_unix!(:microsecond)
   end
 end
