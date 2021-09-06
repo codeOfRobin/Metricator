@@ -1,6 +1,4 @@
 defmodule Metricator.EventGenerator do
-  import Ecto
-  alias Ecto.Repo
 
   defp event(properties, timestamp) do
     %Metricator.Metric {
@@ -11,6 +9,12 @@ defmodule Metricator.EventGenerator do
 
 
   def generate_launch_events_for_past_month() do
-
+    dates = Metricator.DateGenerator.generate_random_timestamps_for_days_ago(30)
+    Enum.map(dates, fn date ->
+      event(%{
+        "activity" => "user_launch",
+        "user_id" => Ecto.UUID.generate(),
+      }, date)
+    end)
   end
 end
