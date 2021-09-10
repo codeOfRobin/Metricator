@@ -7,14 +7,21 @@ defmodule Metricator.EventGenerator do
     }
   end
 
+  def generate_launch_event(date) do
+    event(%{
+      "activity" => "user_launch",
+      "user_id" => Ecto.UUID.generate(),
+    }, date)
+  end
 
   def generate_launch_events_for_past_month() do
     dates = Metricator.DateGenerator.generate_random_timestamps_for_days_ago(30)
-    Enum.map(dates, fn date ->
-      event(%{
-        "activity" => "user_launch",
-        "user_id" => Ecto.UUID.generate(),
-      }, date)
-    end)
+    Enum.map(dates, &generate_launch_event/1)
+  end
+
+  def save_events(events) do
+    for event <- events do
+      Metricator.Repo.insert!(event)
+    end
   end
 end
