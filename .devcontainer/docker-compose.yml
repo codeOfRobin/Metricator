@@ -17,11 +17,9 @@ services:
     image: grafana/grafana:8.0.6
     ports:
       - 3000:3000
-    links:
-      - "db:database"
 
   db:
-    image: timescale/timescaledb:latest-pg13
+    image: timescale/timescaledb:latest-pg12
     restart: unless-stopped
     volumes:
       - postgres-data:/var/lib/postgresql/data
