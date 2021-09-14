@@ -24,4 +24,8 @@ defmodule Metricator.EventGenerator do
       Metricator.Repo.insert!(event)
     end
   end
+
+  def current_events_count() do
+    Metricator.Repo.aggregate(Metricator.Metric, :count)
+  end
 end
